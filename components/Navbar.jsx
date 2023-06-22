@@ -10,6 +10,7 @@ const Navbar = () => {
 				<li className="font-semibold ">
 					<Link href="/">Posts</Link>
 				</li>
+
 				<SignInOut></SignInOut>
 			</ul>
 		</nav>

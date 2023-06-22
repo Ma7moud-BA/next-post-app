@@ -1,13 +1,16 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { useSession } from "next-auth/react";
 import { AiFillLike, AiOutlineComment } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import { useRouter } from "next/navigation";
+import { Comments, CreateComment } from ".";
 const PostCard = ({ title, content, publisher, createdAt, id }) => {
+	const [showComments, setShowComments] = useState(false);
 	const session = useSession();
+
 	const router = useRouter();
 	const getTimeSinceCreation = (createdAt) => {
 		const creationDate = new Date(createdAt);
@@ -20,8 +23,9 @@ const PostCard = ({ title, content, publisher, createdAt, id }) => {
 			method: "DELETE",
 			headers: { authorization: session.data.token.accessToken },
 		});
-		router.push("/");
+		router.refresh();
 	};
+
 	return (
 		<div className=" relative flex flex-col bg-gray-300  min-w-full min-h-[500px] rounded-md">
 			{/* only show the delete button to the post publisher */}
@@ -52,13 +56,24 @@ const PostCard = ({ title, content, publisher, createdAt, id }) => {
 			<div className="p-4">
 				<div className="">
 					<h2 className=" capitalize font-extrabold text-black">{title}</h2>
-					<p className="text-white">{content}</p>
+					<p className="text-white min-h-[300px]">{content}</p>
 				</div>
 			</div>
 			<div className=" mt-auto bg-black p-4 flex justify-between">
 				<AiFillLike className="text-3xl cursor-pointer hover:text-primary" />
-				<AiOutlineComment className="text-3xl cursor-pointer hover:text-primary" />
+				<AiOutlineComment
+					onClick={() => {
+						setShowComments((prev) => !prev);
+					}}
+					className="text-3xl cursor-pointer hover:text-primary"
+				/>
 			</div>
+			{showComments && (
+				<>
+					<Comments postId={id}></Comments>
+					<CreateComment postId={id}></CreateComment>
+				</>
+			)}
 		</div>
 	);
 };

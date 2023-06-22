@@ -13,7 +13,6 @@ export default function RootLayout({ children }) {
 				<Provider>
 					<Navbar />
 					{children}
-					<Footer />
 				</Provider>
 			</body>
 		</html>

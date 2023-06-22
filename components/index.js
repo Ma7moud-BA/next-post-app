@@ -5,9 +5,8 @@ import SignInOut from "./SignInOut";
 import Posts from "./Posts";
 import PostCard from "./PostCard";
 import SideBar from "./SideBar";
-import CreatePost from "./CreatePost";
+import Comments from "./Comments";
 import CreateComment from "./CreateComment";
-import Profile from "./Profile";
 
 export {
 	Footer,
@@ -17,7 +16,6 @@ export {
 	Posts,
 	PostCard,
 	SideBar,
-	CreatePost,
+	Comments,
 	CreateComment,
-	Profile,
 };
