@@ -28,14 +28,15 @@ const SignInOut = () => {
 				</>
 			) : (
 				<li>
-					<button
+					<Link href={"/signup"}> SignUp</Link>
+					{/* <button
 						className="text-emerald-700"
 						onClick={() => {
 							signIn();
 						}}
 					>
 						Sign In
-					</button>
+					</button> */}
 				</li>
 			)}
 		</>

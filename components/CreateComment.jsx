@@ -39,6 +39,7 @@ const CreateComment = ({ postId }) => {
 					<AiOutlineSend
 						size={25}
 						cursor="pointer"
+						className="text-primary"
 						onClick={(e) => {
 							handleCreateComment(e);
 						}}

@@ -11,7 +11,11 @@ export async function POST(req) {
 		},
 	});
 	// because i want to send the name from the session as identifer when creating a post.
-	if (alreadyTaken) return NextResponse.json("Name already taken");
+	if (alreadyTaken) {
+		return new NextResponse(JSON.stringify({ error: "Name already taken" }), {
+			status: 401,
+		});
+	}
 	const hashedPassword = await bcrypt.hash(body.password, 10);
 	const user = await prisma.users.create({
 		data: {
