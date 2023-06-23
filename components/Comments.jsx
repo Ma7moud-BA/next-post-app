@@ -11,14 +11,14 @@ const Comments = ({ postId }) => {
 	const router = useRouter();
 	useEffect(() => {
 		const handleFetchComments = async () => {
-			const res = await fetch(`http://localhost:3000/api/comments/${postId}`);
+			const res = await fetch(`/api/comments/${postId}`);
 			const data = await res.json();
 			setComments(data);
 		};
 		handleFetchComments();
 	}, []);
 	const handleDeleteComment = async (id) => {
-		await fetch(`http://localhost:3000/api/comments/${id}`, {
+		await fetch(`/api/comments/${id}`, {
 			method: "DELETE",
 			headers: { authorization: session.data.token.accessToken },
 		});

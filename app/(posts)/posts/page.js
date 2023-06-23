@@ -1,7 +1,7 @@
 import React from "react";
 import { PostCard } from "@/components";
 const Posts = async () => {
-	const response = await fetch("http://localhost:3000/api/posts", {
+	const response = await fetch("/api/posts", {
 		cache: "no-store",
 	});
 	const listOfPosts = await response.json();

@@ -34,7 +34,7 @@ const CreatePost = () => {
 	};
 	const handleSubmitPost = async () => {
 		console.log(session.data.token.name);
-		await fetch("http://localhost:3000/api/posts", {
+		await fetch("/api/posts", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({
