@@ -10,8 +10,13 @@ import { Comments, CreateComment } from ".";
 const PostCard = ({ title, content, publisher, createdAt, id }) => {
 	const [showComments, setShowComments] = useState(false);
 	const session = useSession();
-
 	const router = useRouter();
+	useEffect(() => {
+		// i put this here because the main posts/page.js is server side and i want to keep it as its
+		if (session.status === "unauthenticated") {
+			router.push("/signup");
+		}
+	}, [session.status]);
 	const getTimeSinceCreation = (createdAt) => {
 		const creationDate = new Date(createdAt);
 		return formatDistanceToNow(creationDate, { addSuffix: true });

@@ -55,5 +55,12 @@ export const handler = NextAuth({
 			return session;
 		},
 	},
+	session: {
+		jwt: true,
+	},
+	cookies: {
+		path: "/",
+		httpOnly: true,
+	},
 });
 export { handler as GET, handler as POST };

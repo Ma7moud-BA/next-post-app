@@ -3,7 +3,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 const SignUp = () => {
-	const nameRegex = /^[A-Za-z\s]{2,50}$/;
+	const nameRegex = /^[A-Za-z0-9]{3,20}$/;
 	const emailRegex =
 		/^[\w-]+(\.[\w-]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*(\.[a-zA-Z]{2,})$/;
 	const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
@@ -25,7 +25,9 @@ const SignUp = () => {
 		// Test password input
 		const isPasswordValid = passwordRegex.test(userInfo.password);
 		if (!isNameValid) {
-			return setError("Name must be at least lenght 2 maximun 50");
+			return setError(
+				"Name must be at least lenght 3 maximun 20, only letters, Numbers are allowed"
+			);
 		}
 		if (!isEmailValid) {
 			return setError("Invalide email syntax");
@@ -56,7 +58,7 @@ const SignUp = () => {
 					password: userInfo.password,
 					redirect: false,
 				});
-				router.push("/");
+				router.push("/posts");
 			} else {
 				setError(data.error);
 			}

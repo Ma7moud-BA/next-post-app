@@ -21,7 +21,7 @@ model Users {
 model Posts {
   id            Int        @id @default(autoincrement())
   title         String
-  content       String
+  content       String     @db.VarChar(500)
   publisherName String
   publisherId   Int
   createdAt     DateTime   @default(now())

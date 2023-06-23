@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
 import { verifyJwt } from "@/utils/jwt";
-const prisma = new PrismaClient();
+import prisma from "@/utils/prismaClient";
 
 export async function DELETE(req, { params }) {
 	const accessToken = req.headers.get("authorization");
