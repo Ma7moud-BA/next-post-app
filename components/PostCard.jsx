@@ -24,7 +24,7 @@ const PostCard = ({ title, content, publisher, createdAt, id }) => {
 	const timeSinceCreation = getTimeSinceCreation(createdAt);
 
 	const handleDeletePost = async (id) => {
-		await fetch(`http://localhost:3000/api/posts/${id}`, {
+		await fetch(`/api/posts/${id}`, {
 			method: "DELETE",
 			headers: { authorization: session.data.token.accessToken },
 		});
