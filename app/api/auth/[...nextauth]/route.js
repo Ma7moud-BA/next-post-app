@@ -15,7 +15,7 @@ export const handler = NextAuth({
 			async authorize(credentials, req) {
 				// Add logic here to look up the user from the credentials supplied
 				const response = await fetch(
-					"https://next-post-app.vercel.app//api/user/login",
+					"https://next-post-app.vercel.app/api/user/login",
 					{
 						method: "POST",
 						headers: {
