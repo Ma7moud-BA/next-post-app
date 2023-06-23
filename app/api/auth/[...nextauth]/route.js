@@ -14,6 +14,7 @@ export const handler = NextAuth({
 			},
 			async authorize(credentials, req) {
 				// Add logic here to look up the user from the credentials supplied
+<<<<<<< Updated upstream
 				const response = await fetch("/api/user/login", {
 					method: "POST",
 					headers: {
@@ -24,6 +25,21 @@ export const handler = NextAuth({
 						password: credentials.password,
 					}),
 				});
+=======
+				const response = await fetch(
+					"https://next-post-app.vercel.app//api/user/login",
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({
+							name: credentials.username,
+							password: credentials.password,
+						}),
+					}
+				);
+>>>>>>> Stashed changes
 				const user = await response.json();
 				if (user) {
 					return user;
