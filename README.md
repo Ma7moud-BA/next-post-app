@@ -1,5 +1,4 @@
-# PostVerse
-
+# PostVer
 Welcome to the Postverse project! This is a web application that allows users to register using their credentials or GitHub, post and comment on other users' posts, and manage their own posts and comments.
 
 ## Live Website Preview
