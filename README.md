@@ -3,7 +3,7 @@ Welcome to the Postverse project! This is a web application that allows users to
 
 ## Live Website Preview
 
-Check out the live website preview [here](https://example.com).
+Check out the live website preview [here](https://next-post-app.vercel.app/).
 
 ## Features
 
