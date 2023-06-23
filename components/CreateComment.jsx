@@ -12,7 +12,7 @@ const CreateComment = ({ postId }) => {
 	const handleCreateComment = async (e) => {
 		e.preventDefault();
 		console.log(commentContent, postId, session.data.token.name);
-		await fetch("/api/comments", {
+		await fetch("http://localhost:3000/api/comments", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({

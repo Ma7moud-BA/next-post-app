@@ -12,7 +12,7 @@ const PostCard = ({ title, content, publisher, createdAt, id }) => {
 	const session = useSession();
 	const router = useRouter();
 	useEffect(() => {
-		// i put this here because the main posts/page.js is server side and i want to keep it as its
+		// i put this here because the main posts/page.js is server side and i want to keep it as its s
 		if (session.status === "unauthenticated") {
 			router.push("/signup");
 		}
@@ -24,7 +24,7 @@ const PostCard = ({ title, content, publisher, createdAt, id }) => {
 	const timeSinceCreation = getTimeSinceCreation(createdAt);
 
 	const handleDeletePost = async (id) => {
-		await fetch(`/api/posts/${id}`, {
+		await fetch(`http://localhost:3000/api/posts/${id}`, {
 			method: "DELETE",
 			headers: { authorization: session.data.token.accessToken },
 		});
