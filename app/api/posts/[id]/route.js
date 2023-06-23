@@ -5,7 +5,6 @@ import prisma from "@/utils/prismaClient";
 export async function DELETE(req, { params }) {
 	const accessToken = req.headers.get("authorization");
 	const decodedToken = verifyJwt(accessToken);
-	console.log(decodedToken);
 	if (!accessToken || !decodedToken) {
 		return new NextResponse(JSON.stringify({ error: "unauthorized" }), {
 			status: 401,

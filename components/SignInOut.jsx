@@ -4,7 +4,6 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 const SignInOut = () => {
 	const session = useSession();
-	// console.log(session);
 
 	return (
 		<>

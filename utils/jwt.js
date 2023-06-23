@@ -15,7 +15,6 @@ export function verifyJwt(token) {
 		const decoded = Jwt.verify(token, secretKey);
 		return decoded;
 	} catch (err) {
-		console.log(err);
 		return null;
 	}
 }

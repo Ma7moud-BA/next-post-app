@@ -53,6 +53,7 @@ const SignUp = () => {
 
 			if (res.ok) {
 				//sign in the user automatically if the res is done
+
 				await signIn("credentials", {
 					username: userInfo.name,
 					password: userInfo.password,

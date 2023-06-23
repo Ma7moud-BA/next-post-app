@@ -7,11 +7,9 @@ import { useRouter } from "next/navigation";
 const CreateComment = ({ postId }) => {
 	const session = useSession();
 	const router = useRouter();
-	// console.log(session);
 	const [commentContent, setCommentContent] = useState("");
 	const handleCreateComment = async (e) => {
 		e.preventDefault();
-		console.log(commentContent, postId, session.data.token.name);
 		await fetch("/api/comments", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },

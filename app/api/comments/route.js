@@ -18,7 +18,6 @@ export async function POST(req) {
 			name: body.name,
 		},
 	});
-	console.log(body.postId);
 
 	const comment = await prisma.comments.create({
 		data: {
